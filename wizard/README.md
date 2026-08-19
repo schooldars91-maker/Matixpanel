@@ -1,4 +1,4 @@
-<h1 align="center">💦 BPB Wizard</h1>
+<h1 align="center">💦 Matix wizard</h1>
 
 This project aims to facilitate the installation process of [BPB Panel](https://github.com/bia-pain-bache/BPB-Worker-Panel) efficiently and prevent user mistakes during deployments.
 The wizard has now two editions: Web and CLI. The web edition generates a `Private Link` after deployment which enables `ONE-CLICK` installations per Cloudflare account. However Wizard CLI stores your logins on your operating system and supports multiple accounts' installations.
