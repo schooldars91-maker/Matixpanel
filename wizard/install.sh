@@ -37,7 +37,7 @@ ARCHIVE="MatiX-Wizard-${OS_LOWER}-${ARCH}.${EXT}"
 WORKER_URL="https://github.com/schooldars91-maker/Matixpanel/releases/latest/download/worker.js"
 ARCHIVE_URL="https://github.com/schooldars91-maker/Matixpanel/releases/latest/download/${ARCHIVE}"
 
-LATEST_VERSION=$(curl -fsSL https://raw.githubusercontent.com/schooldars91-maker/Matixpanel/main/VERSION)
+LATEST_VERSION=$(curl -fsSL https://raw.githubusercontent.com/schooldars91-maker/Matixpanel/main/wizard/VERSION)
 
 mkdir -p "${INSTALL_DIR}"
 
