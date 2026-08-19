@@ -11,7 +11,7 @@ if ($env:PROCESSOR_ARCHITECTURE -eq "ARM64" -or $env:PROCESSOR_ARCHITEW6432 -eq 
 $Archive = "MatiX-Wizard-windows-$Arch.zip"
 $ArchiveUrl = "https://github.com/schooldars91-maker/Matixpanel/releases/latest/download/$Archive"
 $WorkerUrl = "https://github.com/schooldars91-maker/Matixpanel/releases/latest/download/worker.js"
-$LatestVersion = (Invoke-RestMethod -Uri "https://raw.githubusercontent.com/schooldars91-maker/Matixpanel/main/VERSION").Trim()
+$LatestVersion = (Invoke-RestMethod -Uri "https://raw.githubusercontent.com/schooldars91-maker/Matixpanel/main/wizard/VERSION").Trim()
 
 New-Item -ItemType Directory -Force -Path $InstallDir | Out-Null
 
