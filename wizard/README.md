@@ -1,6 +1,7 @@
-<h1 align="center">💦 Matix wizard</h1>
+<h1 align="center">💦 MatiX Wizard</h1>
+<p align="center"><sub>Powered by BPB</sub></p>
 
-This project aims to facilitate the installation process of [BPB Panel](https://github.com/bia-pain-bache/BPB-Worker-Panel) efficiently and prevent user mistakes during deployments.
+This project aims to facilitate the installation process of [MatiX Panel](https://github.com/schooldars91-maker/Matixpanel) efficiently and prevent user mistakes during deployments.
 The wizard has now two editions: Web and CLI. The web edition generates a `Private Link` after deployment which enables `ONE-CLICK` installations per Cloudflare account. However Wizard CLI stores your logins on your operating system and supports multiple accounts' installations.
 
 <p align="center" style="display:flex; align-items: flex-start; justify-content: center; gap: 20px;">
@@ -10,11 +11,14 @@ The wizard has now two editions: Web and CLI. The web edition generates a `Priva
 
 ## Web edition
 
-To install the latest stable version of BPB Panel:
+To install the latest stable version of MatiX Panel:
 
 ```url
-https://wizard.bpb-panel.workers.dev
+https://wizard.<YOUR-CLOUDFLARE-SUBDOMAIN>.workers.dev
 ```
+
+> [!NOTE]
+> Replace `<YOUR-CLOUDFLARE-SUBDOMAIN>` with the workers.dev subdomain of the Cloudflare account you deploy this Worker to.
 
 <br>
 
@@ -42,5 +46,5 @@ irm https://raw.githubusercontent.com/schooldars91-maker/Matixpanel/main/install
 1. **Multi login**: You can manage several Cloudflare accounts using CLI edition. (Only first time token entry on each device).
 2. **Methods**: Both Pages and Workers deployments are supported.
 3. **Cross platform CLI**: Works on all major operating systems i.e. Windows, Android (Termux), macOS and Linux.
-4. **ONE-CLICK installation**: Web edition creates a permanent `Private Link` to install BPB Panel on your account with one click in a few seconds.
+4. **ONE-CLICK installation**: Web edition creates a permanent `Private Link` to install MatiX Panel on your account with one click in a few seconds.
 5. **Privacy**: Web edition gets deployed directly from this repository and CLI edition is built using Github action. There's no storage and all open-source.
