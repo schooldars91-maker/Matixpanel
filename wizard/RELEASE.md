@@ -1,8 +1,8 @@
-# 🎉 BPB Wizard Next Generation
+# 🎉 MatiX Wizard Next Generation
 
-Wizard has web and CLI editions now. Both editions deploy each BPB Panel with a unique hash to minimize Cloudflare errors. The web edition generates a `Private Link` after deployment which enables ONE-CLICK installations per Cloudflare account. However Wizard CLI stores your logins on your operating system and supports multiple accounts.
+Wizard has web and CLI editions now. Both editions deploy each MatiX Panel with a unique hash to minimize Cloudflare errors. The web edition generates a `Private Link` after deployment which enables ONE-CLICK installations per Cloudflare account. However Wizard CLI stores your logins on your operating system and supports multiple accounts.
 
-- Adapted BPB Panel next geneneration build flow.
+- Adapted MatiX Panel next geneneration build flow.
 - All deployments will have unique worker hash.
 - Implemented script execution in order to prevent AVs False Positive. The script downloads the worker script on behalf of wizard now.
 - Wizard Web fully rewrote in TS, using Cloudflare SDK.
@@ -17,16 +17,16 @@ Wizard has web and CLI editions now. Both editions deploy each BPB Panel with a 
 
 ## Web edition
 
-To install the latest stable version of BPB Panel:
+To install the latest stable version of MatiX Panel:
 
 ```url
-https://wizard.bpb-panel.workers.dev
+https://wizard.<YOUR-CLOUDFLARE-SUBDOMAIN>.workers.dev
 ```
 
 To install the latest version even if it's a pre-release:
 
 ```url
-https://wizard.bpb-panel.workers.dev?pre-release=true
+https://wizard.<YOUR-CLOUDFLARE-SUBDOMAIN>.workers.dev?pre-release=true
 ```
 
 <br>
