@@ -1,0 +1,84 @@
+name: MatiX Release
+
+permissions:
+  contents: write
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build-wizard:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        goos: [linux, windows, darwin]
+        goarch: [amd64, arm64, arm, 386]
+        exclude:
+          - goos: darwin
+            goarch: arm
+          - goos: darwin
+            goarch: 386
+          - goos: windows
+            goarch: arm
+      fail-fast: false
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v4
+
+      - name: Setup Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: ^1.26
+
+      - name: Read version
+        working-directory: wizard
+        run: echo "VERSION=$(cat VERSION)" >> $GITHUB_ENV
+
+      - name: Build and zip
+        working-directory: wizard
+        run: make build VERSION=$VERSION GOOS=${{ matrix.goos }} GOARCH=${{ matrix.goarch }}
+
+      - name: Upload Wizard assets
+        uses: svenstaro/upload-release-action@v2
+        with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          file: wizard/dist/*
+          tag: v${{ env.VERSION }}
+          release_name: MatiX v${{ env.VERSION }}
+          overwrite: true
+          file_glob: true
+          prerelease: false
+
+  build-panel:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build worker.js
+        run: npm run build
+
+      - name: Read version
+        working-directory: wizard
+        run: echo "VERSION=$(cat VERSION)" >> $GITHUB_ENV
+
+      - name: Upload Panel asset
+        uses: svenstaro/upload-release-action@v2
+        with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          file: dist/worker.js
+          tag: v${{ env.VERSION }}
+          release_name: MatiX v${{ env.VERSION }}
+          overwrite: true
+          prerelease: false
